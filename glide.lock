@@ -1,5 +1,5 @@
 hash: 472270f890671ff95a15dadc5185d3d6f3500ad4284a8fbc0a604701401ec742
-updated: 2017-10-30T17:36:38.792754+08:00
+updated: 2018-01-18T14:38:41.236332+08:00
 imports:
 - name: github.com/cockroachdb/cmux
   version: 30d10be492927e2dcae0089c374c455d42414fcb
@@ -12,7 +12,7 @@ imports:
   - etcdserver/etcdserverpb
   - mvcc/mvccpb
 - name: github.com/fsnotify/fsnotify
-  version: 4da3e2cfbabc9f751898f250b49f2439785783a1
+  version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
 - name: github.com/go-gomail/gomail
   version: 81ebce5c23dfd25c6c67194b37d3dd3f338c98b1
 - name: github.com/golang/protobuf
@@ -27,7 +27,7 @@ imports:
 - name: github.com/rogpeppe/fastuuid
   version: 6724a57986aff9bff1a1770e9347036def7c89f6
 - name: go.uber.org/atomic
-  version: 4e336646b2ef9fc6e47be8e21594178f98e5ebcf
+  version: 8474b86a5a6f79c443ce4b2992817ff32cf208b8
 - name: go.uber.org/multierr
   version: 3c4937480c32f4c13a875a1829af76c98ca3d40a
 - name: go.uber.org/zap
@@ -53,7 +53,7 @@ imports:
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: 6eab0e8f74e86c598ec3b6fad4888e0c11482d48
+  version: e19ae1496984b1c655b8044a65c0300a3c878dd3
   subpackages:
   - secure/bidirule
   - transform
@@ -84,7 +84,7 @@ imports:
   - internal/scram
 testImports:
 - name: github.com/gopherjs/gopherjs
-  version: a0a7cfed7b2a54080888fd2b3d4a3ec14562c86c
+  version: 9b73d051070fd9cbd1843f376fe094fc1e74ce3e
   subpackages:
   - js
 - name: github.com/jtolds/gls
