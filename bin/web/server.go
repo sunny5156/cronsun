@@ -18,7 +18,8 @@ import (
 )
 
 var (
-	level = flag.Int("l", 0, "log level, -1:debug, 0:info, 1:warn, 2:error")
+	level    = flag.Int("l", 0, "log level, -1:debug, 0:info, 1:warn, 2:error")
+	confFile = flag.String("conf", "conf/files/base.json", "config file path")
 )
 
 func main() {
@@ -33,10 +34,11 @@ func main() {
 	}
 	log.SetLogger(logger.Sugar())
 
-	if err := cronsun.Init(); err != nil {
+	if err = cronsun.Init(*confFile, true); err != nil {
 		log.Errorf(err.Error())
 		return
 	}
+	web.EnsureJobLogIndex()
 
 	l, err := net.Listen("tcp", conf.Config.Web.BindAddr)
 	if err != nil {
@@ -59,7 +61,7 @@ func main() {
 		if len(conf.Config.Mail.HttpAPI) > 0 {
 			noticer = &cronsun.HttpAPI{}
 		} else {
-			mailer, err := cronsun.NewMail(10 * time.Second)
+			mailer, err := cronsun.NewMail(30 * time.Second)
 			if err != nil {
 				log.Errorf(err.Error())
 				return
