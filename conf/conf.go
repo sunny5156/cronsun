@@ -51,6 +51,8 @@ type Conf struct {
 	Group   string // 节点分组
 	Noticer string // 通知
 
+	PIDFile string
+
 	Ttl        int64 // 节点超时时间，单位秒
 	ReqTimeout int   // 请求超时时间，单位秒
 	// 执行任务信息过期时间，单位秒
@@ -62,8 +64,6 @@ type Conf struct {
 	// 单机任务锁过期时间，单位秒
 	// 默认 300
 	LockTtl int64
-
-	PIDFile string
 
 	Etcd client.Config
 	Mgo  *db.Config
