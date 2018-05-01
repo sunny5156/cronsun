@@ -112,10 +112,20 @@ func (n *Node) writePIDFile() {
 	}
 
 	n.PIDFile = path.Join(dir, filename)
-	err = ioutil.WriteFile(n.PIDFile, []byte(n.PID), 0600)
+	err = ioutil.WriteFile(n.PIDFile, []byte(n.PID), 0644)
 	if err != nil {
 		log.Errorf("Failed to write pid file: %s", err)
 		return
+	}
+}
+
+func (n *Node) removePIDFile() {
+	if len(n.PIDFile) == 0 {
+		return
+	}
+
+	if err := os.Remove(n.PIDFile); err != nil {
+		log.Warnf("Failed to remove pid file: %s", err)
 	}
 }
 
@@ -496,6 +506,7 @@ func (n *Node) Run() (err error) {
 
 // 停止服务
 func (n *Node) Stop(i interface{}) {
+	n.removePIDFile()
 	n.Node.Down()
 	close(n.done)
 	n.Node.Del()
