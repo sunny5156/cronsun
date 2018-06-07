@@ -10,7 +10,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 
-	"github.com/shunfei/cronsun"
+	"github.com/kekecoco/cronsun"
 )
 
 func EnsureJobLogIndex() {

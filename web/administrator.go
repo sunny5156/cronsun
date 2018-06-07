@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/shunfei/cronsun"
-	"github.com/shunfei/cronsun/log"
+	"github.com/kekecoco/cronsun"
+	"github.com/kekecoco/cronsun/log"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )

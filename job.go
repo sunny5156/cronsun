@@ -16,10 +16,10 @@ import (
 
 	client "github.com/coreos/etcd/clientv3"
 
-	"github.com/shunfei/cronsun/conf"
-	"github.com/shunfei/cronsun/log"
-	"github.com/shunfei/cronsun/node/cron"
-	"github.com/shunfei/cronsun/utils"
+	"github.com/kekecoco/cronsun/conf"
+	"github.com/kekecoco/cronsun/log"
+	"github.com/kekecoco/cronsun/node/cron"
+	"github.com/kekecoco/cronsun/utils"
 )
 
 const (

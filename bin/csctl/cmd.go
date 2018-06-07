@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/shunfei/cronsun"
-	subcmd "github.com/shunfei/cronsun/bin/csctl/cmd"
+	"github.com/kekecoco/cronsun"
+	subcmd "github.com/kekecoco/cronsun/bin/csctl/cmd"
 )
 
 var confFile string

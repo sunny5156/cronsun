@@ -7,7 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/shunfei/cronsun"
+	"github.com/kekecoco/cronsun"
 )
 
 func GetVersion(ctx *Context) {
@@ -106,7 +106,7 @@ func initRouters() (s *http.Server, err error) {
 	h = NewAuthHandler(configHandler.Configuratios)
 	subrouter.Handle("/configurations", h).Methods("GET")
 
-	r.PathPrefix("/ui/").Handler(http.StripPrefix("/ui/", newEmbeddedFileServer("", "index.html")))
+	r.PathPrefix("/adcroncluster/").Handler(http.StripPrefix("/adcroncluster/", newEmbeddedFileServer("", "index.html")))
 	r.NotFoundHandler = NewBaseHandler(notFoundHandler)
 
 	s = &http.Server{
@@ -165,14 +165,14 @@ func _notFoundHandler(w http.ResponseWriter, r *http.Request) {
     <title>404 page not found</title>
 </head>
 <body>
-    The page you are looking for is not found. Redirect to <a href="/ui/">Dashboard</a> after <span id="s">5</span> seconds.
+    The page you are looking for is not found. Redirect to <a href="/adcroncluster/">Dashboard</a> after <span id="s">5</span> seconds.
 </body>
 <script type="text/javascript">
 var s = 5;
 setInterval(function(){
     s--;
     document.getElementById('s').innerText = s;
-    if (s === 0) location.href = '/ui/';
+    if (s === 0) location.href = '/adcroncluster/';
 }, 1000);
 </script>
 </html>`

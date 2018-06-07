@@ -10,9 +10,9 @@ import (
 	"github.com/gorilla/mux"
 	"gopkg.in/mgo.v2/bson"
 
-	"github.com/shunfei/cronsun"
-	"github.com/shunfei/cronsun/conf"
-	"github.com/shunfei/cronsun/log"
+	"github.com/kekecoco/cronsun"
+	"github.com/kekecoco/cronsun/conf"
+	"github.com/kekecoco/cronsun/log"
 )
 
 type Node struct{}

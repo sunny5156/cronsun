@@ -1,4 +1,4 @@
-# cronsun [![Build Status](https://travis-ci.org/shunfei/cronsun.svg?branch=master)](https://travis-ci.org/shunfei/cronsun)
+# cronsun [![Build Status](https://travis-ci.org/kekecoco/cronsun.svg?branch=master)](https://travis-ci.org/shunfei/cronsun)
 
 `cronsun` 是一个分布式任务系统，单个结点和 `*nix` 机器上的 `crontab` 近似。支持界面管理机器上的任务，支持任务失败邮件提醒，安装简单，使用方便，是替换 `crontab` 一个不错的选择。
 
@@ -53,13 +53,13 @@
 
 ### 安装
 
-直接下载执行文件 [latest release](https://github.com/shunfei/cronsun/releases/latest)。
+直接下载执行文件 [latest release](https://github.com/kekecoco/cronsun/releases/latest)。
 
 如果你熟悉 `Go`，也可以从源码编译, 要求 `go >= 1.9+`
 
 ```
-go get -u github.com/shunfei/cronsun
-cd $GOPATH/src/github.com/shunfei/cronsun
+go get -u github.com/kekecoco/cronsun
+cd $GOPATH/src/github.com/kekecoco/cronsun
 sh build.sh
 ```
 
