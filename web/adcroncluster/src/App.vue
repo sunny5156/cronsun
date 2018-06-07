@@ -15,7 +15,8 @@
       <router-link v-if="shouldOpen" class="item" to="/job" v-bind:class="{active: this.$route.path.indexOf('/job') === 0}"><i class="calendar icon"></i> {{$L('job')}}</router-link>
       <router-link v-if="shouldOpen" class="item" to="/node" v-bind:class="{active: this.$route.path.indexOf('/node') === 0}"><i class="server icon"></i> {{$L('node')}}</router-link>
       <router-link v-if="$store.getters.enabledAuth && $store.getters.role === 1" class="item" to="/admin/account/list" v-bind:class="{active: this.$route.path.indexOf('/admin/account') === 0}"><i class="user icon"></i> {{$L('account')}}</router-link>
-      <a class="item" href="https://github.com/shunfei/cronsun/wiki" target="_blank"><i class="external alternate icon"></i> Docs</a>
+      <a class="item" href="https://moji.wemomo.com/wiki/42490" target="_blank"><i class="external alternate icon"></i> 帮助</a>
+      <a class="item" href="http://ad-prism.wemomo.com/" target="_blank"><i class="external alternate icon"></i> Ad Prism</a>
       <div class="right menu">
         <router-link to="/user/setpwd" class="item" v-if="this.$store.getters.email"><i class="user icon"></i> {{this.$store.getters.email}}</router-link>
         <a class="item" v-if="this.$store.getters.email" href="#" v-on:click="logout"><i class="sign out icon"></i></a>

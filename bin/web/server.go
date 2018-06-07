@@ -10,11 +10,11 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/shunfei/cronsun"
-	"github.com/shunfei/cronsun/conf"
-	"github.com/shunfei/cronsun/event"
-	"github.com/shunfei/cronsun/log"
-	"github.com/shunfei/cronsun/web"
+	"github.com/kekecoco/cronsun"
+	"github.com/kekecoco/cronsun/conf"
+	"github.com/kekecoco/cronsun/event"
+	"github.com/kekecoco/cronsun/log"
+	"github.com/kekecoco/cronsun/web"
 )
 
 var (

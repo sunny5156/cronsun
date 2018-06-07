@@ -1,6 +1,6 @@
 window.$ = window.jQuery = require('jquery');
 require('semantic');
-require('semantic-ui/dist/semantic.min.css');
+require('semantic-adcroncluster/dist/semantic.min.css');
 import store from './vuex/store';
 
 import Vue from 'vue';

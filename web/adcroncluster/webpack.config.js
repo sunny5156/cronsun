@@ -1,7 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 
-var fontPublicPath = process.env.NODE_ENV === 'production' ? '/ui/' : '';
+var fontPublicPath = process.env.NODE_ENV === 'production' ? '/adcroncluster/' : '';
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -47,8 +47,8 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'semantic$': 'semantic-ui/dist/semantic.min.js',
-      'semanticcss$': 'semantic-ui/dist/semantic.min.css',
+      'semantic$': 'semantic-adcroncluster/dist/semantic.min.js',
+      'semanticcss$': 'semantic-adcroncluster/dist/semantic.min.css',
       'charts$': 'chart.js/dist/Chart.min.js'
     }
   },
