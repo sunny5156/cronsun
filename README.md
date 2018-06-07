@@ -64,13 +64,13 @@ We encourage you to try it, it's easy to use, see how it works for you. We belie
 
 ### Setup / installation
 
-Install from binary [latest release](https://github.com/shunfei/cronsun/releases/latest)
+Install from binary [latest release](https://github.com/kekecoco/cronsun/releases/latest)
 
-Or build from source ([feature/glide](https://github.com/shunfei/cronsun/tree/feature/glide)), require `go >= 1.9+`, [glide](https://glide.sh/)
+Or build from source ([feature/glide](https://github.com/kekecoco/cronsun/tree/feature/glide)), require `go >= 1.9+`, [glide](https://glide.sh/)
 
 ```
-go get -u github.com/shunfei/cronsun
-cd $GOPATH/src/github.com/shunfei/cronsun
+go get -u github.com/kekecoco/cronsun
+cd $GOPATH/src/github.com/kekecoco/cronsun
 git checkout feature/glide
 glide update
 sh build.sh
