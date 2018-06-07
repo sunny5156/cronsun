@@ -47,8 +47,8 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'semantic$': 'semantic-adcroncluster/dist/semantic.min.js',
-      'semanticcss$': 'semantic-adcroncluster/dist/semantic.min.css',
+      'semantic$': 'semantic-ui/dist/semantic.min.js',
+      'semanticcss$': 'semantic-ui/dist/semantic.min.css',
       'charts$': 'chart.js/dist/Chart.min.js'
     }
   },
