@@ -24,7 +24,7 @@ func initRouters() (s *http.Server, err error) {
 	adminHandler := &Administrator{}
 
 	r := mux.NewRouter()
-	subrouter := r.PathPrefix("/v1").Subrouter()
+	subrouter := r.PathPrefix("/adcroncluster/v1").Subrouter()
 	subrouter.Handle("/version", NewBaseHandler(GetVersion)).Methods("GET")
 
 	h := NewBaseHandler(authHandler.GetAuthSession)
@@ -180,7 +180,7 @@ setInterval(function(){
 </script>
 </html>`
 
-	if strings.HasPrefix(strings.TrimLeft(r.URL.Path, "/"), "v1") {
+	if strings.HasPrefix(strings.TrimLeft(r.URL.Path, "/"), "adcroncluster/v1") {
 		outJSONWithCode(w, http.StatusNotFound, "Api not found.")
 	} else {
 		w.WriteHeader(http.StatusNotFound)
