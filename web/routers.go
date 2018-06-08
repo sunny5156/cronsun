@@ -24,7 +24,7 @@ func initRouters() (s *http.Server, err error) {
 	adminHandler := &Administrator{}
 
 	r := mux.NewRouter()
-	subrouter := r.PathPrefix("/adcroncluster/v1").Subrouter()
+	subrouter := r.PathPrefix("/cron/v1").Subrouter()
 	subrouter.Handle("/version", NewBaseHandler(GetVersion)).Methods("GET")
 
 	h := NewBaseHandler(authHandler.GetAuthSession)
@@ -106,7 +106,7 @@ func initRouters() (s *http.Server, err error) {
 	h = NewAuthHandler(configHandler.Configuratios)
 	subrouter.Handle("/configurations", h).Methods("GET")
 
-	r.PathPrefix("/adcroncluster/").Handler(http.StripPrefix("/adcroncluster/", newEmbeddedFileServer("", "index.html")))
+	r.PathPrefix("/cron/").Handler(http.StripPrefix("/cron/", newEmbeddedFileServer("", "index.html")))
 	r.NotFoundHandler = NewBaseHandler(notFoundHandler)
 
 	s = &http.Server{
@@ -168,19 +168,19 @@ func _notFoundHandler(w http.ResponseWriter, r *http.Request) {
     <title>404 page not found</title>
 </head>
 <body>
-    The page you are looking for is not found. Redirect to <a href="/adcroncluster/">Dashboard</a> after <span id="s">5</span> seconds.
+    The page you are looking for is not found. Redirect to <a href="/cron/">Dashboard</a> after <span id="s">5</span> seconds.
 </body>
 <script type="text/javascript">
 var s = 5;
 setInterval(function(){
     s--;
     document.getElementById('s').innerText = s;
-    if (s === 0) location.href = '/adcroncluster/';
+    if (s === 0) location.href = '/cron/';
 }, 1000);
 </script>
 </html>`
 
-	if strings.HasPrefix(strings.TrimLeft(r.URL.Path, "/"), "adcroncluster/v1") {
+	if strings.HasPrefix(strings.TrimLeft(r.URL.Path, "/"), "cron/v1") {
 		outJSONWithCode(w, http.StatusNotFound, "Api not found.")
 	} else {
 		w.WriteHeader(http.StatusNotFound)

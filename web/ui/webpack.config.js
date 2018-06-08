@@ -1,7 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 
-var fontPublicPath = process.env.NODE_ENV === 'production' ? '/adcroncluster/' : '';
+var fontPublicPath = process.env.NODE_ENV === 'production' ? '/cron/' : '';
 module.exports = {
   entry: './src/main.js',
   output: {
