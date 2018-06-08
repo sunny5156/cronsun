@@ -1,6 +1,6 @@
 #!/bin/sh
 
-version=v0.1
+version=v0.3.1
 if [[ $# -gt 0 ]]; then
 	version="$1"
 fi
@@ -15,8 +15,8 @@ for os in "${goos[@]}"; do
 	export GOOS=$os GOARCH=amd64
 	echo building $GOOS-$GOARCH
 	sh build.sh
-	mv dist cronsun-$version
-	7z a cronsun-$version-$GOOS-$GOARCH.zip cronsun-$version
-	rm -rf cronsun-$version
+	mv dist cron-$version
+	7z a cron-$version-$GOOS-$GOARCH.zip cron-$version
+	rm -rf cron-$version
 	echo
 done
