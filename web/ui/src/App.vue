@@ -9,7 +9,7 @@
 <template>
   <div id="app">
     <div class="ui blue inverted menu fixed">
-      <div class="item">CRONSUN</div>
+      <div class="item">ADCRONCLUSTER</div>
       <router-link v-if="shouldOpen" class="item" to="/" v-bind:class="{active: this.$route.path == '/'}"><i class="dashboard icon"></i> {{$L('dashboard')}}</router-link>
       <router-link v-if="shouldOpen" class="item" to="/log" v-bind:class="{active: this.$route.path.indexOf('/log') === 0}"><i class="file text icon"></i> {{$L('log')}}</router-link>
       <router-link v-if="shouldOpen" class="item" to="/job" v-bind:class="{active: this.$route.path.indexOf('/job') === 0}"><i class="calendar icon"></i> {{$L('job')}}</router-link>

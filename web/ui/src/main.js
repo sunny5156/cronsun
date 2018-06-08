@@ -20,7 +20,7 @@ Vue.use((Vue) => {
 
 // global restful client
 import Rest from './libraries/rest-client.js';
-var restApi = new Rest('/v1/', (msg) => {
+var restApi = new Rest('/adcroncluster/v1/', (msg) => {
   bus.$emit('error', msg);
 }, (msg) => {
   bus.$emit('error', msg);
