@@ -15,15 +15,14 @@
 ```
                                                 [web]
                                                   |
-                                     --------------------------
-           (add/del/update/exec jobs)|                        |(query job exec result)
-                                   [etcd]                 [mongodb]
-                                     |                        ^
-                            --------------------              |
-                            |        |         |              |
-                         [node.1]  [node.2]  [node.n]         |
-             (job exec fail)|        |         |              |
-          [send mail]<-----------------------------------------(job exec result)
+                        (add/del/update/exec jobs)|                       
+                                                [etcd]
+                                                  |
+                                         --------------------
+                                         |        |         |
+                                      [node.1]  [node.2]  [node.n]
+                          (job exec fail)|        |         |
+                        [send mail]<------------------------------
 
 ```
 
