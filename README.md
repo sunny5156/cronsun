@@ -29,15 +29,14 @@ We encourage you to try it, it's easy to use, see how it works for you. We belie
 ```
                                                 [web]
                                                   |
-                                     --------------------------
-           (add/del/update/exec jobs)|                        |(query job exec result)
-                                   [etcd]                 [mongodb]
-                                     |                        ^
-                            --------------------              |
-                            |        |         |              |
-                         [node.1]  [node.2]  [node.n]         |
-             (job exec fail)|        |         |              |
-          [send mail]<-----------------------------------------(job exec result)
+                        (add/del/update/exec jobs)|                       
+                                                [etcd]
+                                                  |
+                                         --------------------
+                                         |        |         |
+                                      [node.1]  [node.2]  [node.n]
+                          (job exec fail)|        |         |
+                        [send mail]<------------------------------
 
 ```
 
@@ -78,11 +77,10 @@ sh build.sh
 
 ### Run
 
-1. Install [MongoDB](http://docs.mongodb.org/manual/installation/)
-2. Install [etcd3](https://github.com/coreos/etcd)
-3. Open and update Etcd(`conf/etcd.json`) and MongoDB(`conf/db.json`) configurations
-4. Start cronnode: `./cronnode -conf conf/base.json`, start cronweb: `./cronweb -conf conf/base.json`
-5. Open `http://127.0.0.1:7079` in browser
+1. build source
+2. Open and update Etcd(`conf/etcd.json`) and MongoDB(`conf/db.json`) configurations
+3. Start cronnode: `./cronnode -conf conf/base.json`, start cronweb: `./cronweb -conf conf/base.json`
+4. Open `http://127.0.0.1:7079` in browser
 
 ## Screenshot
 

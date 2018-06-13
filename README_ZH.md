@@ -15,15 +15,14 @@
 ```
                                                 [web]
                                                   |
-                                     --------------------------
-           (add/del/update/exec jobs)|                        |(query job exec result)
-                                   [etcd]                 [mongodb]
-                                     |                        ^
-                            --------------------              |
-                            |        |         |              |
-                         [node.1]  [node.2]  [node.n]         |
-             (job exec fail)|        |         |              |
-          [send mail]<-----------------------------------------(job exec result)
+                        (add/del/update/exec jobs)|                       
+                                                [etcd]
+                                                  |
+                                         --------------------
+                                         |        |         |
+                                      [node.1]  [node.2]  [node.n]
+                          (job exec fail)|        |         |
+                        [send mail]<------------------------------
 
 ```
 
@@ -65,11 +64,10 @@ sh build.sh
 
 ### 运行
 
-1. 安装 [MongoDB](http://docs.mongodb.org/manual/installation/)
-2. 安装 [etcd3](https://github.com/coreos/etcd)
-3. 修改 `conf` 相关的配置
-4. 在任务结点启动 `./cronnode -conf conf/base.json`，在管理结点启动 `./cronweb -conf conf/base.json`
-5. 访问管理界面 `http://127.0.0.1:7079/ui/`
+1. 源码编译打包
+2. 修改 `conf` 相关的配置
+3. 在任务结点启动 `./cronnode -conf conf/base.json`，在管理结点启动 `./cronweb -conf conf/base.json`
+4. 访问管理界面 `http://127.0.0.1:7079/ui/`
 
 ### 关于后台权限
 
