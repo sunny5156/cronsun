@@ -16,23 +16,28 @@
       <div class="field">
         <div class="ui radio checkbox">
           <input type="radio" v-model="job.kind" name="kind" value="0" tabindex="0" class="hidden"/>
-          <label>{{$L('common job')}}</label>
-        </div>
-      </div>
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" v-model="job.kind" name="kind" value="1" tabindex="0" class="hidden"/>
-          <label>{{$L('single node single process')}}</label>
-        </div>
-      </div>
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" v-model="job.kind" name="kind" value="2" tabindex="0" class="hidden"/>
           <label>{{$L('group level common')}}
             <i class="help circle link icon" data-position="top right" :data-html="$L('group level common help')" data-variation="wide"></i>
           </label>
         </div>
       </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" v-model="job.kind" name="kind" value="1" tabindex="0" class="hidden"/>
+          <label>{{$L('common job')}}
+            <i class="help circle link icon" data-position="top right" :data-html="$L('common job help')" data-variation="wide"></i>
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" v-model="job.kind" name="kind" value="2" tabindex="0" class="hidden"/>
+          <label>{{$L('single node single process')}}
+            <i class="help circle link icon" data-position="top right" :data-html="$L('single node single process help')" data-variation="wide"></i>
+          </label>
+        </div>
+      </div>
+
     </div>
     <div class="two fields">
       <div class="field">
@@ -101,13 +106,13 @@
 </template>
 
 <script>
-import JobEditRule from './JobEditRule.vue';
-import Dropdown from './basic/Dropdown.vue';
-import {split} from '../libraries/functions';
+  import JobEditRule from './JobEditRule.vue';
+  import Dropdown from './basic/Dropdown.vue';
+  import {split} from '../libraries/functions';
 
-export default {
-  name: 'job-edit-form',
-  data: function(){
+  export default {
+    name: 'job-edit-form',
+    data: function(){
       return {
         action: 'CREATE',
         groups: [],
@@ -133,72 +138,72 @@ export default {
           to: []
         }
       }
-  },
+    },
 
-  methods: {
-    updateValue: function(v){
-      var tv = v.replace(/[\*\/]/g, '');
-      this.job.name = tv;
-      if (tv !== v) {
-        this.$refs.name.value = tv;
+    methods: {
+      updateValue: function(v){
+        var tv = v.replace(/[\*\/]/g, '');
+        this.job.name = tv;
+        if (tv !== v) {
+          this.$refs.name.value = tv;
+        }
+      },
+
+      addNewTimer: function(){
+        if (!this.job.rules) this.job.rules = [];
+        this.job.rules.push({id: this.newRandomRuleId()});
+      },
+
+      changeGroup: function(val, text){
+        this.job.group = val;
+      },
+
+      changeUser: function(val, text){
+        this.job.user = val;
+      },
+
+      changeAlarmReceiver: function(val, text){
+        this.job.to = split(val, ',');
+      },
+
+      removeRule: function(index){
+        this.job.rules.splice(index, 1);
+      },
+
+      changeRule: function(index, key, val){
+        this.job.rules[index][key] = val;
+      },
+
+      submit: function(){
+        var exceptCode = this.action == 'CREATE' ? 201 : 200;
+        this.loading = true;
+        var vm = this;
+        this.$rest.PUT('job', this.job)
+          .onsucceed(exceptCode, ()=>{vm.$router.push('/job')})
+          .onfailed((resp)=>{vm.$bus.$emit('error', resp)})
+          .onend(()=>{vm.loading=false})
+          .do();
+      },
+
+      newRandomRuleId: function(){
+        return 'NEW'+Math.random().toString();
       }
     },
 
-    addNewTimer: function(){
-      if (!this.job.rules) this.job.rules = [];
-      this.job.rules.push({id: this.newRandomRuleId()});
-    },
-
-    changeGroup: function(val, text){
-      this.job.group = val;
-    },
-
-    changeUser: function(val, text){
-      this.job.user = val;
-    },
-
-    changeAlarmReceiver: function(val, text){
-      this.job.to = split(val, ',');
-    },
-
-    removeRule: function(index){
-      this.job.rules.splice(index, 1);
-    },
-
-    changeRule: function(index, key, val){
-      this.job.rules[index][key] = val;
-    },
-
-    submit: function(){
-      var exceptCode = this.action == 'CREATE' ? 201 : 200;
-      this.loading = true;
+    mounted: function(){
       var vm = this;
-      this.$rest.PUT('job', this.job)
-        .onsucceed(exceptCode, ()=>{vm.$router.push('/job')})
-        .onfailed((resp)=>{vm.$bus.$emit('error', resp)})
-        .onend(()=>{vm.loading=false})
-        .do();
-    },
-
-    newRandomRuleId: function(){
-      return 'NEW'+Math.random().toString();
-    }
-  },
-
-  mounted: function(){
-    var vm = this;
-    var secCnf = vm.$appConfig.security;
-    if (secCnf.open) {
-      if (secCnf.ext && secCnf.ext.length > 0) {
-        vm.allowSuffixsTip = vm.$L('(only [{.suffixs}] files can be allowed)', secCnf.ext.join(' '));
+      var secCnf = vm.$appConfig.security;
+      if (secCnf.open) {
+        if (secCnf.ext && secCnf.ext.length > 0) {
+          vm.allowSuffixsTip = vm.$L('(only [{.suffixs}] files can be allowed)', secCnf.ext.join(' '));
+        }
       }
-    }
 
-    if (vm.$route.path.indexOf('/job/create') === 0) {
-      vm.action = 'CREATE';
-    } else {
-      vm.action = 'UPDATE';
-      vm.$rest.GET('job/'+vm.$route.params.group+'-'+vm.$route.params.id).
+      if (vm.$route.path.indexOf('/job/create') === 0) {
+        vm.action = 'CREATE';
+      } else {
+        vm.action = 'UPDATE';
+        vm.$rest.GET('job/'+vm.$route.params.group+'-'+vm.$route.params.id).
         onsucceed(200, (resp)=>{
           vm.job = resp;
           vm.alarmReceivers = resp.to;
@@ -213,37 +218,37 @@ export default {
         }).
         onfailed((msg)=> vm.$bus.$emit('error', data)).
         do();
+      }
+
+      vm.$rest.GET('job/groups').onsucceed(200, (resp)=>{
+        !resp.includes('default') && resp.unshift('default');
+        vm.groups = resp;
+      }).do();
+
+      $(vm.$refs.pause).checkbox({
+        onChange: function(){
+          vm.job.pause = !vm.job.pause;
+        }
+      });
+
+      $(vm.$refs.fail_notify).checkbox({
+        onChange: function(){
+          vm.job.fail_notify = !vm.job.fail_notify;
+        }
+      });
+
+      $(vm.$refs.kind).find('.checkbox').checkbox({
+        onChange: function(){
+          vm.job.kind = +$(vm.$refs.kind).find('input[type=radio]:checked').val();
+        }
+      });
+
+      $(vm.$el).find('i.help.icon').popup();
+    },
+
+    components: {
+      JobEditRule,
+      Dropdown
     }
-
-    vm.$rest.GET('job/groups').onsucceed(200, (resp)=>{
-      !resp.includes('default') && resp.unshift('default');
-      vm.groups = resp;
-    }).do();
-
-    $(vm.$refs.pause).checkbox({
-      onChange: function(){
-        vm.job.pause = !vm.job.pause;
-      }
-    });
-
-    $(vm.$refs.fail_notify).checkbox({
-      onChange: function(){
-        vm.job.fail_notify = !vm.job.fail_notify;
-      }
-    });
-
-    $(vm.$refs.kind).find('.checkbox').checkbox({
-      onChange: function(){
-        vm.job.kind = +$(vm.$refs.kind).find('input[type=radio]:checked').val();
-      }
-    });
-
-    $(vm.$el).find('i.help.icon').popup();
-  },
-
-  components: {
-    JobEditRule,
-    Dropdown
   }
-}
 </script>

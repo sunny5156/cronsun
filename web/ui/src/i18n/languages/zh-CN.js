@@ -84,9 +84,11 @@ var language = {
 
   'job type': '任务类型',
   'common job': '普通任务',
+  'common job help': '和 crontab 中的任务一样',
   'single node single process': '单机单进程',
+  'single node single process help': '保证有多台机器可以执行一个任务，但在执行任务被执行时，只有一台机器在执行任务',
   'group level common': '组级别普通任务',
-  'group level common help': '暂时没想到好名字，一个比较简单的说明是，把所有选中的节点视为一个大节点，那么该类型的任务就相当于在单个节点上的普通任务',
+  'group level common help': '把所有选中的节点视为一个大节点，那么该类型的任务就相当于在单个节点上的普通任务',
   'warning on': '开启报警',
   'warning off': '关闭报警',
   'job group': '任务分组',
