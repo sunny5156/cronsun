@@ -69,7 +69,7 @@
         <label>{{$L('timeout(in seconds, 0 for no limits)')}}</label>
         <input type="number" ref="timeout" v-model.number="job.timeout">
       </div>
-      <div class="field" v-show="job.kind === 0">
+      <div class="field" v-show="job.kind === 1">
         <label>{{$L('parallel number in one node(0 for no limits)')}}</label>
         <input type="number" ref="parallels" v-model.number="job.parallels">
       </div>
