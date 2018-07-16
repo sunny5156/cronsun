@@ -3,8 +3,8 @@ package web
 import (
 	"time"
 
-	"github.com/kekecoco/cronsun"
-	"github.com/kekecoco/cronsun/log"
+	"github.com/sunny5156/cronsun"
+	"github.com/sunny5156/cronsun/log"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )

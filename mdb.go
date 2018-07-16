@@ -1,7 +1,7 @@
 package cronsun
 
 import (
-	"github.com/kekecoco/cronsun/db"
+	"github.com/sunny5156/cronsun/db"
 )
 
 var (

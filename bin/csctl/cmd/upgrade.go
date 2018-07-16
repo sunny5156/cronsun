@@ -10,8 +10,8 @@ import (
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 
-	"github.com/kekecoco/cronsun"
-	"github.com/kekecoco/cronsun/conf"
+	"github.com/sunny5156/cronsun"
+	"github.com/sunny5156/cronsun/conf"
 )
 
 var prever string

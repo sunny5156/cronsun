@@ -10,8 +10,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/kekecoco/cronsun"
-	"github.com/kekecoco/cronsun/conf"
+	"github.com/sunny5156/cronsun"
+	"github.com/sunny5156/cronsun/conf"
 )
 
 var restoreFile string

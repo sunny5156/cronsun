@@ -9,8 +9,8 @@ import (
 
 	client "github.com/coreos/etcd/clientv3"
 
-	"github.com/kekecoco/cronsun/conf"
-	"github.com/kekecoco/cronsun/log"
+	"github.com/sunny5156/cronsun/conf"
+	"github.com/sunny5156/cronsun/log"
 )
 
 var (

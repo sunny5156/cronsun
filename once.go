@@ -3,7 +3,7 @@ package cronsun
 import (
 	client "github.com/coreos/etcd/clientv3"
 
-	"github.com/kekecoco/cronsun/conf"
+	"github.com/sunny5156/cronsun/conf"
 )
 
 // 马上执行 job 任务

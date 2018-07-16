@@ -5,8 +5,8 @@ import (
 
 	v3 "github.com/coreos/etcd/clientv3"
 
-	"github.com/kekecoco/cronsun"
-	"github.com/kekecoco/cronsun/conf"
+	"github.com/sunny5156/cronsun"
+	"github.com/sunny5156/cronsun/conf"
 )
 
 type Info struct{}

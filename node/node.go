@@ -8,11 +8,11 @@ import (
 
 	client "github.com/coreos/etcd/clientv3"
 
-	"github.com/kekecoco/cronsun"
-	"github.com/kekecoco/cronsun/conf"
-	"github.com/kekecoco/cronsun/log"
-	"github.com/kekecoco/cronsun/node/cron"
-	"github.com/kekecoco/cronsun/utils"
+	"github.com/sunny5156/cronsun"
+	"github.com/sunny5156/cronsun/conf"
+	"github.com/sunny5156/cronsun/log"
+	"github.com/sunny5156/cronsun/node/cron"
+	"github.com/sunny5156/cronsun/utils"
 )
 
 // Node 执行 cron 命令服务的结构体

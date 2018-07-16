@@ -1,6 +1,6 @@
 package web
 
-import "github.com/kekecoco/cronsun/conf"
+import "github.com/sunny5156/cronsun/conf"
 
 type Configuration struct{}
 

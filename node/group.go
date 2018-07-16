@@ -1,7 +1,7 @@
 package node
 
 import (
-	"github.com/kekecoco/cronsun"
+	"github.com/sunny5156/cronsun"
 )
 
 type Groups map[string]*cronsun.Group

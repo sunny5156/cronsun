@@ -6,8 +6,8 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 
-	"github.com/kekecoco/cronsun/conf"
-	"github.com/kekecoco/cronsun/log"
+	"github.com/sunny5156/cronsun/conf"
+	"github.com/sunny5156/cronsun/log"
 )
 
 const (

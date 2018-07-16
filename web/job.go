@@ -11,9 +11,9 @@ import (
 	"github.com/coreos/etcd/clientv3"
 	"github.com/gorilla/mux"
 
-	"github.com/kekecoco/cronsun"
-	"github.com/kekecoco/cronsun/conf"
-	"github.com/kekecoco/cronsun/log"
+	"github.com/sunny5156/cronsun"
+	"github.com/sunny5156/cronsun/conf"
+	"github.com/sunny5156/cronsun/log"
 )
 
 type Job struct{}
